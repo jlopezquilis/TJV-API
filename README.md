@@ -1,58 +1,5 @@
 # TJV Project
 
-## DESCRIPTION OF THE DATA
-
-----------------------------------------
-|               Student                |
-----------------------------------------
-| - id : int                           |
-| - name : string                      |
-| - age : int                          |
-----------------------------------------
-| + enroll(course: Course) : void      |
-| + disenroll(course: Course) : void   |
-----------------------------------------
-               0..* |
-                    |
-                    |
-                    |
-                    |
-                    |
-                    |
-                    | 0..*
-----------------------------------------------
-|                 Course                     |
-----------------------------------------------
-| - id : int                                 |
-| - name : string                            |
-| - credits : int                            |
-| - capacity : int                           |
-----------------------------------------------
-| + assignTeacher(teacher: Teacher) : void   |
-| + obtainTeacher() : Teacher                |
-| + addStudent(student: Student) : void      |
-| + deleteStudent(student: Student) : void   |
-| + obtainStudents() : Student[]             |
-----------------------------------------------
-               0..* |
-                    |
-                    |
-                    |
-                    |
-                    |
-                    |
-                    | 0..1
-------------------------------------------
-|             Teacher                    |
-------------------------------------------
-| - id : int                             |
-| - name : string                        |
-| - department : string                  |
-------------------------------------------
-| + assignCourse(course: Course) : void  |
-| + obtainCourses() : Course[]           |
-------------------------------------------
-
 ## DESCRIPTION OF THE COMPLEX QUERY
 Two options for the complex query:
 1) Get the total number of enrolled credits for a student
