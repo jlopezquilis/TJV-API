@@ -2,9 +2,11 @@ package cz.cvut.fit.tjv.project.tjvapi.services;
 
 import cz.cvut.fit.tjv.project.tjvapi.entities.Course;
 import cz.cvut.fit.tjv.project.tjvapi.repositories.CourseRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CourseService extends CrudService<Course, Integer, CourseRepository>{
     public CourseService(CourseRepository repository) {
         super(repository);
