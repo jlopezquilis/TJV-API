@@ -8,7 +8,8 @@ import java.util.List;
 @Entity
 public class Teacher implements EntityWithId<Integer>{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_seq")
+    @SequenceGenerator(name="teacher_seq", sequenceName = "teacher_seq", allocationSize=1)
     private int id;
 
     @Column(nullable = false)

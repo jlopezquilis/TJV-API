@@ -13,6 +13,5 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
     List<Course> findByStudents_Id(int studentId);
 
     // Additional custom query methods if needed, like finding by teacher or credits
-    List<Course> findByTeacher_Id(int teacherId);
     List<Course> findByCredits(int credits);
 }

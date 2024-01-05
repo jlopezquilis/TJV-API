@@ -15,9 +15,6 @@ public class CourseService extends CrudService<Course, Integer, CourseRepository
     public List<Course> readByStudents_Id(int studentId) {
         return repository.findByStudents_Id(studentId);
     }
-    public List<Course> readByTeacher_Id(int teacherId) {
-        return repository.findByTeacher_Id(teacherId);
-    }
     public List<Course> readByCredits(int credits) {
         return repository.findByCredits(credits);
     }
