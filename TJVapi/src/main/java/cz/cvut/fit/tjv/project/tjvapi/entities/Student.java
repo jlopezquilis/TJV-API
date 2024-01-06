@@ -21,6 +21,7 @@ public class Student implements EntityWithId<Integer>{
     @ManyToMany(mappedBy = "students")
     private List<Course> courses;
 
+
     @Override
     public Integer getId() {
         return id;
@@ -31,5 +32,24 @@ public class Student implements EntityWithId<Integer>{
         id = integer;
     }
 
-    // Constructors, getters, setters, and methods
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
 }
