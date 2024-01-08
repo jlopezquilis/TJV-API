@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -24,16 +24,16 @@ public class TeacherController extends CrudController<Teacher, Integer, TeacherS
     }
 
     @GetMapping("/{department}/readByDepartment")
-    public List<Teacher> readByDepartment(@PathVariable String department) {
-        Optional<List<Teacher>> optionalList = Optional.ofNullable(service.readByDepartment(department));
+    public Collection<Teacher> readByDepartment(@PathVariable String department) {
+        Optional<Collection<Teacher>> optionalList = Optional.ofNullable(service.readByDepartment(department));
         if (optionalList.isPresent())
             return optionalList.get();
         else
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
     @GetMapping("/{teacherId}/obtainStudentsTaughtByTeacher")
-    public List<Student> obtainStudentsTaughtByTeacher(@PathVariable Integer teacherId) {
-        Optional<List<Student>> optionalList = Optional.ofNullable(service.obtainStudentsTaughtByTeacher(teacherId));
+    public Collection<Student> obtainStudentsTaughtByTeacher(@PathVariable Integer teacherId) {
+        Optional<Collection<Student>> optionalList = Optional.ofNullable(service.obtainStudentsTaughtByTeacher(teacherId));
         if (optionalList.isPresent())
             return optionalList.get();
         else

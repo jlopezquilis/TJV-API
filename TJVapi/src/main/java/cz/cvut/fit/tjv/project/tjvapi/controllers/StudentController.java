@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -21,8 +21,8 @@ public class StudentController extends CrudController<Student, Integer, StudentS
     }
 
     @GetMapping("/{courseId}/getStudentsByCourseId")
-    public List<Student> readByCourses_Id(@PathVariable int courseId) {
-        Optional<List<Student>> optionalList = Optional.ofNullable(service.readByCourses_Id(courseId));
+    public Collection<Student> readByCourses_Id(@PathVariable int courseId) {
+        Optional<Collection<Student>> optionalList = Optional.ofNullable(service.readByCourses_Id(courseId));
         if (optionalList.isPresent())
             return optionalList.get();
         else
