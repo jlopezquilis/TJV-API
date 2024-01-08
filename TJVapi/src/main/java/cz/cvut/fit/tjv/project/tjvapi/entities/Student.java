@@ -19,7 +19,7 @@ public class Student implements EntityWithId<Integer>{
     private int age;
 
     @ManyToMany(mappedBy = "students")
-    private List<Course> courses;
+    private Collection<Course> courses;
 
 
     @Override
@@ -48,8 +48,11 @@ public class Student implements EntityWithId<Integer>{
         this.age = age;
     }
 
-    public List<Course> getCourses() {
+    public Collection<Course> getCourses() {
         return courses;
     }
 
+    public void setCourses(Collection<Course> courses) {
+        this.courses = courses;
+    }
 }

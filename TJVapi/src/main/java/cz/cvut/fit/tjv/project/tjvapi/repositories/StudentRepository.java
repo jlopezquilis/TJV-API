@@ -5,7 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import java.util.List;
+
+import java.util.Collection;
 
 /*
 * Repositories are interfaces that directly interact with the data layer of your application.
@@ -16,7 +17,7 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Integer> {
     // Custom query methods for managing many-to-many relationship with Course
-    List<Student> findByCourses_Id(int courseId);
+    Collection<Student> findByCourses_Id(int courseId);
 
     @Query("SELECT SUM(c.credits) FROM Student s JOIN s.courses c WHERE s.id = :studentId")
     Integer getTotalEnrolledCredits(@Param("studentId") int studentId);

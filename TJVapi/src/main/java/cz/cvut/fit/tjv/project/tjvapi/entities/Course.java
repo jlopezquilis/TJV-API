@@ -31,7 +31,7 @@ public class Course implements EntityWithId<Integer>{
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
-    private List<Student> students;
+    private Collection<Student> students;
 
     @Override
     public Integer getId() {
@@ -67,4 +67,19 @@ public class Course implements EntityWithId<Integer>{
         this.capacity = capacity;
     }
 
+    public Collection<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Collection<Student> students) {
+        this.students = students;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }

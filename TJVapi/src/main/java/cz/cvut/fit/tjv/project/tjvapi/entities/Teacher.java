@@ -3,7 +3,6 @@ package cz.cvut.fit.tjv.project.tjvapi.entities;
 import jakarta.persistence.*;
 
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 public class Teacher implements EntityWithId<Integer>{
@@ -19,7 +18,7 @@ public class Teacher implements EntityWithId<Integer>{
     private String department;
 
     @OneToMany(mappedBy = "teacher")
-    private List<Course> courses;
+    private Collection<Course> courses;
 
     @Override
     public Integer getId() {
@@ -47,11 +46,11 @@ public class Teacher implements EntityWithId<Integer>{
         this.department = department;
     }
 
-    public List<Course> getCourses() {
+    public Collection<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<Course> courses) {
+    public void setCourses(Collection<Course> courses) {
         this.courses = courses;
     }
 

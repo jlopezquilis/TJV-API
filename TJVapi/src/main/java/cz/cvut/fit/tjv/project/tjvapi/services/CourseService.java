@@ -4,7 +4,7 @@ import cz.cvut.fit.tjv.project.tjvapi.entities.Course;
 import cz.cvut.fit.tjv.project.tjvapi.repositories.CourseRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
 
 @Service
 public class CourseService extends CrudService<Course, Integer, CourseRepository>{
@@ -12,10 +12,10 @@ public class CourseService extends CrudService<Course, Integer, CourseRepository
         super(repository);
     }
 
-    public List<Course> readByStudents_Id(int studentId) {
+    public Collection<Course> readByStudents_Id(int studentId) {
         return repository.findByStudents_Id(studentId);
     }
-    public List<Course> readByCredits(int credits) {
+    public Collection<Course> readByCredits(int credits) {
         return repository.findByCredits(credits);
     }
 }

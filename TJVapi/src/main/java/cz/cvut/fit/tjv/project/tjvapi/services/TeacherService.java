@@ -5,7 +5,7 @@ import cz.cvut.fit.tjv.project.tjvapi.entities.Teacher;
 import cz.cvut.fit.tjv.project.tjvapi.repositories.TeacherRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
 
 @Service
 public class TeacherService extends CrudService<Teacher, Integer, TeacherRepository>{
@@ -14,10 +14,10 @@ public class TeacherService extends CrudService<Teacher, Integer, TeacherReposit
         super(repository);
     }
 
-    public List<Teacher> readByDepartment(String department) {
+    public Collection<Teacher> readByDepartment(String department) {
         return repository.findByDepartment(department);
     }
-    public List<Student> obtainStudentsTaughtByTeacher(int teacherId) {
+    public Collection<Student> obtainStudentsTaughtByTeacher(int teacherId) {
         return repository.getStudentsTaughtByTeacher(teacherId);
     }
 }

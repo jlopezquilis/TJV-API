@@ -5,7 +5,7 @@ import cz.cvut.fit.tjv.project.tjvapi.repositories.StudentRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
 
 /*
 * While repositories are about data access, services deal with business logic.
@@ -21,7 +21,7 @@ public class StudentService extends CrudService<Student, Integer, StudentReposit
         super(repository);
     }
 
-    public List<Student> readByCourses_Id(int courseId) {
+    public Collection<Student> readByCourses_Id(int courseId) {
         return repository.findByCourses_Id(courseId);
     }
     public Integer obtainTotalEnrolledCredits(int studentId) {

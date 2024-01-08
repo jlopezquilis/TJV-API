@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -23,16 +23,16 @@ public class CourseController extends CrudController<Course, Integer, CourseServ
     }
 
     @GetMapping("/{studentId}/readByStudentsId")
-    public List<Course> readByStudents_Id(@PathVariable int studentId) {
-        Optional<List<Course>> optionalList = Optional.ofNullable(service.readByStudents_Id(studentId));
+    public Collection<Course> readByStudents_Id(@PathVariable int studentId) {
+        Optional<Collection<Course>> optionalList = Optional.ofNullable(service.readByStudents_Id(studentId));
         if (optionalList.isPresent())
             return optionalList.get();
         else
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
     @GetMapping("/{credits}/readByCredits")
-    public List<Course> readByCredits(@PathVariable int credits) {
-        Optional<List<Course>> optionalList = Optional.ofNullable(service.readByCredits(credits));
+    public Collection<Course> readByCredits(@PathVariable int credits) {
+        Optional<Collection<Course>> optionalList = Optional.ofNullable(service.readByCredits(credits));
         if (optionalList.isPresent())
             return optionalList.get();
         else
