@@ -1,5 +1,6 @@
 package cz.cvut.fit.tjv.project.tjvapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -23,8 +24,10 @@ public class Course implements EntityWithId<Integer>{
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
+    @JsonManagedReference
     private Teacher teacher;
 
+    @JsonManagedReference
     @ManyToMany
     @JoinTable(
             name = "course_student",
