@@ -1,5 +1,6 @@
 package cz.cvut.fit.tjv.project.tjvapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -9,8 +10,9 @@ import java.util.List;
 @Entity
 public class Course implements EntityWithId<Integer>{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_seq")
-    @SequenceGenerator(name="course_seq", sequenceName = "course_seq", allocationSize=1)
+    //ASK for this lines
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_seq")
+    //@SequenceGenerator(name="course_seq", sequenceName = "course_seq", allocationSize=1)
     private int id;
 
     @Column(nullable = false)
@@ -22,12 +24,11 @@ public class Course implements EntityWithId<Integer>{
     @Column(nullable = false)
     private int capacity;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "teacher_id")
-    @JsonManagedReference
+    //@JsonManagedReference
     private Teacher teacher;
 
-    @JsonManagedReference
     @ManyToMany
     @JoinTable(
             name = "course_student",

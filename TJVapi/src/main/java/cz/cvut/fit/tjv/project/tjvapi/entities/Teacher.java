@@ -1,6 +1,7 @@
 package cz.cvut.fit.tjv.project.tjvapi.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -18,7 +19,8 @@ public class Teacher implements EntityWithId<Integer>{
     @Column(nullable = false)
     private String department;
 
-    @JsonBackReference
+    //@JsonBackReference
+    @JsonIgnore
     @OneToMany(mappedBy = "teacher")
     private Collection<Course> courses;
 
