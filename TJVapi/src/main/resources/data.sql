@@ -1,64 +1,72 @@
+-- Insert 10 courses
+INSERT INTO course (id, name, capacity, credits) VALUES
+                                                     (1, 'Introduction to Programming', 30, 4),
+                                                     (2, 'Advanced Mathematics', 25, 3),
+                                                     (3, 'Principles of Economics', 30, 4),
+                                                     (4, 'World History', 35, 3),
+                                                     (5, 'Biology 101', 40, 4),
+                                                     (6, 'Introduction to Philosophy', 25, 3),
+                                                     (7, 'Social Psychology', 30, 4),
+                                                     (8, 'Business Management', 35, 3),
+                                                     (9, 'Environmental Science', 30, 3),
+                                                     (10, 'Modern Literature', 25, 4);
 
--- Inserting 20 more students
-INSERT INTO students (id, name, age) VALUES (11, 'Student11', 19);
-INSERT INTO students (id, name, age) VALUES (12, 'Student12', 20);
-INSERT INTO students (id, name, age) VALUES (13, 'Student13', 21);
-INSERT INTO students (id, name, age) VALUES (14, 'Student14', 22);
-INSERT INTO students (id, name, age) VALUES (15, 'Student15', 18);
-INSERT INTO students (id, name, age) VALUES (16, 'Student16', 19);
-INSERT INTO students (id, name, age) VALUES (17, 'Student17', 20);
-INSERT INTO students (id, name, age) VALUES (18, 'Student18', 21);
-INSERT INTO students (id, name, age) VALUES (19, 'Student19', 22);
-INSERT INTO students (id, name, age) VALUES (20, 'Student20', 18);
-INSERT INTO students (id, name, age) VALUES (21, 'Student21', 19);
-INSERT INTO students (id, name, age) VALUES (22, 'Student22', 20);
-INSERT INTO students (id, name, age) VALUES (23, 'Student23', 21);
-INSERT INTO students (id, name, age) VALUES (24, 'Student24', 22);
-INSERT INTO students (id, name, age) VALUES (25, 'Student25', 18);
-INSERT INTO students (id, name, age) VALUES (26, 'Student26', 19);
-INSERT INTO students (id, name, age) VALUES (27, 'Student27', 20);
-INSERT INTO students (id, name, age) VALUES (28, 'Student28', 21);
-INSERT INTO students (id, name, age) VALUES (29, 'Student29', 22);
-INSERT INTO students (id, name, age) VALUES (30, 'Student30', 18);
+-- Insert 10 teachers
+INSERT INTO teacher (id, name, department) VALUES
+                                               (1, 'John Smith', 'Computer Science'),
+                                               (2, 'Jane Doe', 'Mathematics'),
+                                               (3, 'Emily Johnson', 'Economics'),
+                                               (4, 'Michael Brown', 'History'),
+                                               (5, 'Rachel Garcia', 'Biology'),
+                                               (6, 'Daniel Davis', 'Philosophy'),
+                                               (7, 'Laura Miller', 'Psychology'),
+                                               (8, 'Robert Wilson', 'Business'),
+                                               (9, 'Sarah Moore', 'Environmental Sciences'),
+                                               (10, 'James Taylor', 'English');
 
--- Enrolling new students in courses
-INSERT INTO student_courses (student_id, course_id) VALUES (11, 9);
-INSERT INTO student_courses (student_id, course_id) VALUES (11, 8);
-INSERT INTO student_courses (student_id, course_id) VALUES (12, 8);
-INSERT INTO student_courses (student_id, course_id) VALUES (12, 10);
-INSERT INTO student_courses (student_id, course_id) VALUES (13, 5);
-INSERT INTO student_courses (student_id, course_id) VALUES (13, 3);
-INSERT INTO student_courses (student_id, course_id) VALUES (14, 5);
-INSERT INTO student_courses (student_id, course_id) VALUES (14, 9);
-INSERT INTO student_courses (student_id, course_id) VALUES (15, 7);
-INSERT INTO student_courses (student_id, course_id) VALUES (15, 6);
-INSERT INTO student_courses (student_id, course_id) VALUES (16, 2);
-INSERT INTO student_courses (student_id, course_id) VALUES (16, 9);
-INSERT INTO student_courses (student_id, course_id) VALUES (17, 5);
-INSERT INTO student_courses (student_id, course_id) VALUES (17, 2);
-INSERT INTO student_courses (student_id, course_id) VALUES (18, 9);
-INSERT INTO student_courses (student_id, course_id) VALUES (18, 6);
-INSERT INTO student_courses (student_id, course_id) VALUES (19, 8);
-INSERT INTO student_courses (student_id, course_id) VALUES (19, 4);
-INSERT INTO student_courses (student_id, course_id) VALUES (20, 8);
-INSERT INTO student_courses (student_id, course_id) VALUES (20, 3);
-INSERT INTO student_courses (student_id, course_id) VALUES (21, 7);
-INSERT INTO student_courses (student_id, course_id) VALUES (21, 9);
-INSERT INTO student_courses (student_id, course_id) VALUES (22, 1);
-INSERT INTO student_courses (student_id, course_id) VALUES (22, 9);
-INSERT INTO student_courses (student_id, course_id) VALUES (23, 5);
-INSERT INTO student_courses (student_id, course_id) VALUES (23, 3);
-INSERT INTO student_courses (student_id, course_id) VALUES (24, 1);
-INSERT INTO student_courses (student_id, course_id) VALUES (24, 7);
-INSERT INTO student_courses (student_id, course_id) VALUES (25, 10);
-INSERT INTO student_courses (student_id, course_id) VALUES (25, 7);
-INSERT INTO student_courses (student_id, course_id) VALUES (26, 2);
-INSERT INTO student_courses (student_id, course_id) VALUES (26, 6);
-INSERT INTO student_courses (student_id, course_id) VALUES (27, 2);
-INSERT INTO student_courses (student_id, course_id) VALUES (27, 7);
-INSERT INTO student_courses (student_id, course_id) VALUES (28, 10);
-INSERT INTO student_courses (student_id, course_id) VALUES (28, 6);
-INSERT INTO student_courses (student_id, course_id) VALUES (29, 6);
-INSERT INTO student_courses (student_id, course_id) VALUES (29, 10);
-INSERT INTO student_courses (student_id, course_id) VALUES (30, 4);
-INSERT INTO student_courses (student_id, course_id) VALUES (30, 10);
+-- Insert 20 students
+INSERT INTO student (id, name, age) VALUES
+                                        (1, 'Alice Johnson', 20),
+                                        (2, 'Bob Brown', 21),
+                                        (3, 'Charlie Davis', 22),
+                                        (4, 'Diana Evans', 23),
+                                        (5, 'Ethan Smith', 20),
+                                        (6, 'Fiona Clark', 21),
+                                        (7, 'George Wilson', 22),
+                                        (8, 'Hannah Martin', 23),
+                                        (9, 'Ian Thompson', 20),
+                                        (10, 'Julia Scott', 21),
+                                        (11, 'Kevin Lopez', 22),
+                                        (12, 'Lily White', 23),
+                                        (13, 'Mason Harris', 20),
+                                        (14, 'Nora Sanchez', 21),
+                                        (15, 'Oscar Martinez', 22),
+                                        (16, 'Penelope Lewis', 23),
+                                        (17, 'Quincy Allen', 20),
+                                        (18, 'Ruby Hall', 21),
+                                        (19, 'Steve Young', 22),
+                                        (20, 'Tina King', 23);
+
+-- Enroll students in courses
+-- Ensure that the course capacity is not exceeded
+INSERT INTO course_student (course_id, student_id) VALUES
+                                                       (1, 1),
+                                                       (1, 2),
+                                                       (2, 3),
+                                                       (2, 4),
+                                                       (3, 5),
+                                                       (3, 6),
+                                                       (4, 7),
+                                                       (4, 8),
+                                                       (5, 9),
+                                                       (5, 10),
+                                                       (6, 11),
+                                                       (6, 12),
+                                                       (7, 13),
+                                                       (7, 14),
+                                                       (8, 15),
+                                                       (8, 16),
+                                                       (9, 17),
+                                                       (9, 18),
+                                                       (10, 19),
+                                                       (10, 20);

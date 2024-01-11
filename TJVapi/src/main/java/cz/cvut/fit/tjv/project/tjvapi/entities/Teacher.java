@@ -9,8 +9,7 @@ import java.util.Collection;
 @Entity
 public class Teacher implements EntityWithId<Integer>{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_seq")
-    @SequenceGenerator(name="teacher_seq", sequenceName = "teacher_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)

@@ -22,6 +22,7 @@ public abstract class CrudController<E extends EntityWithId<ID>, ID, S extends C
         return service.create(data);
     }
 
+    @GetMapping
     public Iterable<E> readAll() {
         return service.readAll();
     }

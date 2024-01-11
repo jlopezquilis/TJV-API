@@ -10,9 +10,7 @@ import java.util.List;
 @Entity
 public class Course implements EntityWithId<Integer>{
     @Id
-    //ASK for this lines
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_seq")
-    //@SequenceGenerator(name="course_seq", sequenceName = "course_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)
