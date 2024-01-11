@@ -18,4 +18,5 @@ public class CourseService extends CrudService<Course, Integer, CourseRepository
     public Collection<Course> readByCredits(int credits) {
         return repository.findByCredits(credits);
     }
+    public Collection<Course> readByName(String name) {return repository.findByName(name);}
 }

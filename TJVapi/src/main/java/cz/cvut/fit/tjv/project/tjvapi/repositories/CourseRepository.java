@@ -15,4 +15,6 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
 
     // Additional custom query methods if needed, like finding by teacher or credits
     Collection<Course> findByCredits(int credits);
+
+    Collection<Course> findByName(String name);
 }

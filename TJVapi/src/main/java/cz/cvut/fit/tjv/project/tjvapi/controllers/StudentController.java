@@ -1,5 +1,6 @@
 package cz.cvut.fit.tjv.project.tjvapi.controllers;
 
+import cz.cvut.fit.tjv.project.tjvapi.entities.Course;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Student;
 import cz.cvut.fit.tjv.project.tjvapi.repositories.StudentRepository;
 import cz.cvut.fit.tjv.project.tjvapi.services.StudentService;
@@ -38,5 +39,14 @@ public class StudentController extends CrudController<Student, Integer, StudentS
         else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/idByName/{studentName}")
+    public Collection<Student> getCourseIdByName(@PathVariable String studentName) {
+        Optional<Collection<Student>> optionalList = Optional.ofNullable(service.readByName(studentName));
+        if (optionalList.isPresent())
+            return optionalList.get();
+        else
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 }

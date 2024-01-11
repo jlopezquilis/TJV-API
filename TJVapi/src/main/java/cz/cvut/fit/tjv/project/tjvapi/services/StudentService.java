@@ -1,5 +1,6 @@
 package cz.cvut.fit.tjv.project.tjvapi.services;
 
+import cz.cvut.fit.tjv.project.tjvapi.entities.Course;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Student;
 import cz.cvut.fit.tjv.project.tjvapi.repositories.StudentRepository;
 import org.springframework.data.repository.query.Param;
@@ -27,4 +28,5 @@ public class StudentService extends CrudService<Student, Integer, StudentReposit
     public Integer obtainTotalEnrolledCredits(int studentId) {
         return repository.getTotalEnrolledCredits(studentId);
     }
+    public Collection<Student> readByName(String name) {return repository.findByName(name);}
 }

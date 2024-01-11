@@ -20,4 +20,5 @@ public class TeacherService extends CrudService<Teacher, Integer, TeacherReposit
     public Collection<Student> obtainStudentsTaughtByTeacher(int teacherId) {
         return repository.getStudentsTaughtByTeacher(teacherId);
     }
+    public Collection<Teacher> readByName(String name) {return repository.findByName(name);}
 }
