@@ -11,7 +11,7 @@ import java.util.Collection;
 /*
 * Repositories are interfaces that directly interact with the data layer of your application.
 * They are part of the Data Access Object (DAO) pattern and are responsible for encapsulating the logic
-* required to access data sources.
+* required to access data sources. .
 * */
 
 @Repository
