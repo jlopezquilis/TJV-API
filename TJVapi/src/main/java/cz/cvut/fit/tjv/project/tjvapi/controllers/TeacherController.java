@@ -48,4 +48,13 @@ public class TeacherController extends CrudController<Teacher, Integer, TeacherS
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/getCourses/{teacherId}")
+    public Collection<Course> readCoursesByTeacherId(@PathVariable int teacherId) {
+        Optional<Collection<Course>> optionalList = Optional.ofNullable(service.readCoursesByTeacherId(teacherId));
+        if (optionalList.isPresent())
+            return optionalList.get();
+        else
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
 }

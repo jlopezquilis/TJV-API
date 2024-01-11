@@ -1,5 +1,6 @@
 package cz.cvut.fit.tjv.project.tjvapi.services;
 
+import cz.cvut.fit.tjv.project.tjvapi.entities.Course;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Student;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Teacher;
 import cz.cvut.fit.tjv.project.tjvapi.repositories.TeacherRepository;
@@ -21,4 +22,6 @@ public class TeacherService extends CrudService<Teacher, Integer, TeacherReposit
         return repository.getStudentsTaughtByTeacher(teacherId);
     }
     public Collection<Teacher> readByName(String name) {return repository.findByName(name);}
+
+    public Collection<Course> readCoursesByTeacherId(int teacherId) {return repository.findCoursesByTeacherId(teacherId);}
 }
