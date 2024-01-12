@@ -1,4 +1,4 @@
-package cz.cvut.fit.tjv.project.tjvapi.controller;
+package cz.cvut.fit.tjv.project.tjvapi.controller.unitTests;
 
 import cz.cvut.fit.tjv.project.tjvapi.controllers.CourseController;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Course;
@@ -19,7 +19,7 @@ import java.util.List;
 
 @SpringBootTest
 class CourseControllerUnitTest {
-    @MockBean
+    @MockBean //Auto add mock
     private CourseService courseService;
     @Autowired
     private CourseController courseController;

@@ -1,4 +1,4 @@
-package cz.cvut.fit.tjv.project.tjvapi.controller;
+package cz.cvut.fit.tjv.project.tjvapi.controller.unitTests;
 import cz.cvut.fit.tjv.project.tjvapi.controllers.StudentController;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Student;
 import cz.cvut.fit.tjv.project.tjvapi.services.StudentService;
