@@ -4,6 +4,8 @@ import cz.cvut.fit.tjv.project.tjvapi.controllers.TeacherController;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Student;
 import cz.cvut.fit.tjv.project.tjvapi.entities.Teacher;
 import cz.cvut.fit.tjv.project.tjvapi.services.TeacherService;
+import cz.cvut.fit.tjv.project.tjvapi.services.exceptions.EntityCannotBeCreatedException;
+import cz.cvut.fit.tjv.project.tjvapi.services.exceptions.EntityDoesNotExistException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -76,5 +78,33 @@ class TeacherControllerUnitTest {
         Assertions.assertFalse(teachers.isEmpty());
         Assertions.assertTrue(teachers.contains(teacher1));
     }
+
+    // Add tests for not found cases
+    @Test
+    void readByDepartment_NotFound() {
+        Mockito.when(teacherService.readByDepartment("History")).thenThrow(ResponseStatusException.class);
+        Assertions.assertThrows(
+                ResponseStatusException.class,
+                () -> teacherController.readByDepartment("History")
+        );
+    }
+
+    @Test
+    void obtainStudentsTaughtByTeacher_NotFound() {
+        Mockito.when(teacherService.obtainStudentsTaughtByTeacher(3)).thenThrow(ResponseStatusException.class);
+        Assertions.assertThrows(
+                ResponseStatusException.class,
+                () -> teacherController.obtainStudentsTaughtByTeacher(3)
+        );
+    }
+
+    @Test
+    void getCourseIdByName_NotFound() {
+        Mockito.when(teacherService.readByName("Unknown")).thenThrow(ResponseStatusException.class);
+        Assertions.assertThrows(
+                ResponseStatusException.class,
+                () -> teacherController.getCourseIdByName("Unknown")
+        );
+    }
 }
-// Add
+

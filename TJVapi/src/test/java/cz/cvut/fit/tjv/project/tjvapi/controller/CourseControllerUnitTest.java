@@ -10,12 +10,12 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @SpringBootTest
 class CourseControllerUnitTest {
@@ -28,24 +28,22 @@ class CourseControllerUnitTest {
 
     @BeforeEach
     void setUp() {
+        // Setup test data
         course1 = new Course();
         course1.setId(1);
-        course1.setName("Calculus");
-
+        course1.setName("Course 1");
         course2 = new Course();
         course2.setId(2);
-        course2.setName("Physics");
+        course2.setName("Course 2");
 
-        Mockito.when(courseService.readByStudents_Id(1))
-                .thenReturn(Arrays.asList(course1, course2));
-        Mockito.when(courseService.readByCredits(5))
-                .thenReturn(Arrays.asList(course1));
-        Mockito.when(courseService.readByName("Calculus"))
-                .thenReturn(Arrays.asList(course1));
+        // Setup mock behavior
+        Mockito.when(courseService.readByStudents_Id(1)).thenReturn(Arrays.asList(course1, course2));
+        Mockito.when(courseService.readByCredits(3)).thenReturn(Arrays.asList(course1));
+        Mockito.when(courseService.readByName("Course 1")).thenReturn(Arrays.asList(course1));
     }
 
     @Test
-    void readByStudents_Id_Found() {
+    void readByStudentsId_Found() {
         Collection<Course> courses = courseController.readByStudents_Id(1);
         Assertions.assertFalse(courses.isEmpty());
         Assertions.assertTrue(courses.contains(course1));
@@ -53,16 +51,43 @@ class CourseControllerUnitTest {
     }
 
     @Test
+    void readByStudentsId_NotFound() {
+        Mockito.when(courseService.readByStudents_Id(3)).thenThrow(ResponseStatusException.class);
+        Assertions.assertThrows(
+                ResponseStatusException.class,
+                () -> courseController.readByStudents_Id(3)
+        );
+    }
+
+    @Test
     void readByCredits_Found() {
-        Collection<Course> courses = courseController.readByCredits(5);
+        Collection<Course> courses = courseController.readByCredits(3);
         Assertions.assertFalse(courses.isEmpty());
         Assertions.assertTrue(courses.contains(course1));
     }
 
     @Test
+    void readByCredits_NotFound() {
+        Mockito.when(courseService.readByCredits(5)).thenThrow(ResponseStatusException.class);
+        Assertions.assertThrows(
+                ResponseStatusException.class,
+                () -> courseController.readByCredits(5)
+        );
+    }
+
+    @Test
     void getCourseIdByName_Found() {
-        Collection<Course> courses = courseController.getCourseIdByName("Calculus");
+        Collection<Course> courses = courseController.getCourseIdByName("Course 1");
         Assertions.assertFalse(courses.isEmpty());
         Assertions.assertTrue(courses.contains(course1));
+    }
+
+    @Test
+    void getCourseIdByName_NotFound() {
+        Mockito.when(courseService.readByName("Unknown")).thenThrow(ResponseStatusException.class);
+        Assertions.assertThrows(
+                ResponseStatusException.class,
+                () -> courseController.getCourseIdByName("Unknown")
+        );
     }
 }
