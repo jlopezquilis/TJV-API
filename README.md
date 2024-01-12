@@ -24,8 +24,10 @@ When the TJVclient project runs using your prefered IDE, we can see a shell prom
 
 Here we can write the command ``` help ``` and we will obtain a list of methods we can use for this client followed my an explanation of what they do.
 
-If we are interested in some method but do not know how to use it of which arguments do we need for executing it, we can use the command ``` help ``` followed by the name of the method. For example:
+If we are interested in some method but do not know how to use it or which arguments do we need for executing it, we can use the command ``` help ``` followed by the name of the method. For example:
 
-``` help read-current-course```
+```help read-current-course```
 
 And we will get information about the method and how to use it.
+
+I hope you find it usefull. Wish you a great day.
